@@ -1,39 +1,32 @@
-<header>
-  <nav class="h-full fixed top-0 left-0 bottom-0 border-r-2 border-solid bg-cyan-700 w-40">
+<!-- <header>
+  <nav class="h-full fixed top-0 left-0 bottom-0 bg-cyan-700 w-40 mat-typography">
     <div class="flex flex-col">
-        <button class="flex flex-row mt-4 items-stretch py-2" type="button" mat-stroked-button>
-          <mat-icon>event</mat-icon>
-          <span>Moje terminy</span>
-        </button>
+      <button class="flex flex-row mt-4 items-stretch py-2"
+              type="button"
+              mat-stroked-button>
+        <mat-icon>event</mat-icon>
+        <span>Moje terminy</span>
+      </button>
+    </div>
+
+    <div class="flex flex-col">
+      <button class="flex flex-row mt-4 items-stretch py-2"
+              type="button"
+              mat-stroked-button
+              routerLink="/new-event"
+              routerLinkActive="active"
+              ariaCurrentWhenActive="page">
+        <mat-icon>calendar_add_on</mat-icon>
+        <span>Nowy termin</span>
+      </button>
     </div>
   </nav>
-</header>
+</header> -->
 
-<div class="w-full h-full bg-zinc-700 flex justify-center content-center">
-
-  <mat-card class="w-96 h-72 text-white">
-    <mat-card-header>
-      <mat-card-title>Siatkówka</mat-card-title>
-    </mat-card-header>
-
-    <mat-card-content class="justify-center">
-      <mat-form-field class="mt-4 w-full">
-        <mat-label>Kod zapisów</mat-label>
-        <input matInput>
-      </mat-form-field>
-    </mat-card-content>
-
-    <mat-card-actions class="text-center justify-center gap-2">
-      <button mat-flat-button
-              color="accent"
-              type="button">Utwórz termin</button>
-      <button mat-flat-button
-              color="primary"
-              type="button">Przejdź do zapisów</button>
-    </mat-card-actions>
-
-  </mat-card>
-</div>
-
-
-<router-outlet></router-outlet>
+<body class="mat-typography mat-app-background">
+  <div class="w-full h-full flex justify-center content-center">
+    <app-main-page></app-main-page>
+    <app-new-event></app-new-event>
+  </div>
+</body>
+<!-- <router-outlet></router-outlet> -->

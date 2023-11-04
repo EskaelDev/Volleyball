@@ -13,6 +13,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
 import { LocalStorageService } from './services/local-storage.service';
+import { MainPageComponent } from './components/main-page/main-page.component';
+import { NewEventComponent } from './components/new-event/new-event.component';
 
 @NgModule({
   declarations: [
@@ -29,9 +31,10 @@ import { LocalStorageService } from './services/local-storage.service';
     MatCardModule,
     MatButtonModule,
     MatIconModule,
-    MatDialogModule
+    MatDialogModule,
+    MainPageComponent, NewEventComponent
   ],
-  providers: [LocalStorageService, LoginComponent],
+  providers: [LocalStorageService, LoginComponent,],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

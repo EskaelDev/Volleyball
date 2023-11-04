@@ -1,10 +1,26 @@
-<h1 mat-dialog-title>Podaj imię i nazwisko</h1>
-<div mat-dialog-content form>
-    <mat-form-field class="mt-4 w-full">
-        <mat-label>Kod zapisów</mat-label>
-        <input matInput>
-      </mat-form-field>
-</div>
-<div mat-dialog-actions>
-  <button mat-button mat-dialog-close cdkFocusInitial>Ok</button>
+<h2 mat-dialog-title
+    class="">Podaj imię i nazwisko</h2>
+<form mat-dialog-content
+      class="flex content-evenly"
+      [formGroup]="loginForm">
+      
+  <!-- name -->
+  <mat-form-field class="mt-4 w-full">
+    <mat-label>Imię</mat-label>
+    <input formControlName="name"
+           matInput>
+  </mat-form-field>
+
+  <!-- surname -->
+  <mat-form-field class="mt-4 w-full">
+    <mat-label>Nazwisko</mat-label>
+    <input formControlName="surname"
+           matInput>
+  </mat-form-field>
+</form>
+<div mat-dialog-actions
+     align="end">
+  <button mat-button
+          (click)="saveUserInfo()"
+          cdkFocusInitial>Ok</button>
 </div>

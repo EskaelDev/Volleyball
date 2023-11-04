@@ -4,6 +4,9 @@ import { MatButtonModule } from '@angular/material/button';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UserInfo } from 'src/app/types/UserInfo';
 import { TypedFormGroup } from 'src/app/types/TypedFormGroup';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { LocalStorageService } from 'src/app/services/local-storage.service';
 
 type LoginInfo = Omit<UserInfo, "id">
 type LoginForm = TypedFormGroup<LoginInfo>;
@@ -12,15 +15,27 @@ type LoginForm = TypedFormGroup<LoginInfo>;
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
   standalone: true,
-  imports: [MatButtonModule, MatDialogModule, ReactiveFormsModule, FormsModule],
+  imports: [MatInputModule,
+    ReactiveFormsModule,
+    FormsModule,
+    MatFormFieldModule,
+    MatButtonModule,
+    MatDialogModule
+  ],
 })
 export class LoginComponent {
   loginForm: LoginForm;
   fb = inject(FormBuilder)
+  storage = inject(LocalStorageService);
 
   constructor(public dialogRef: MatDialogRef<LoginComponent>) {
-    this.loginForm = this.fb.group<LoginInfo>({
+    this.loginForm = this.fb.nonNullable.group<LoginInfo>({
       name: '', surname: ''
     })
+  }
+
+  saveUserInfo(){
+    this.storage.userInfo=this.loginForm.value as UserInfo;
+    this.dialogRef.close();
   }
 }

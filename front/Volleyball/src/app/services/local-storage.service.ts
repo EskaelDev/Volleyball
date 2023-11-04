@@ -34,6 +34,7 @@ export class LocalStorageService {
   }
 
   set userInfo(data: UserInfo) {
+    data.id = crypto.randomUUID();
     this.setItem(this.userInfoKey, data);
   }
 }
