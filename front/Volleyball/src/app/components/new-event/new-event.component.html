@@ -1,16 +1,48 @@
-<h2 mat-dialog-title>Wybierz datę</h2>
-<div mat-dialog-content
-     class="flex content-evenly">
+<mat-card class="w-96"
+          [formGroup]="newEventForm">
+     <mat-card-header>
+          <mat-card-title>Nowy termin</mat-card-title>
+     </mat-card-header>
 
-    <!-- <mat-form-field class="mt-4 w-full"> -->
-    <mat-label>Nazwisko</mat-label>
-    <mat-calendar></mat-calendar>
-    <!-- </mat-form-field> -->
+     <mat-card-content>
+          <div class="flex">
+               <div class="w-40">
+                    <!-- time -->
+                    <mat-form-field>
+                         <mat-label>godzina</mat-label>
+                         <input matInput
+                                formControlName="time"
+                                placeholder="HH:mm"
+                                type="datetime">
+                    </mat-form-field>
+                    <!-- blik -->
+                    <mat-form-field>
+                         <mat-label>blik</mat-label>
+                         <input matInput
+                                formControlName="blik"
+                                type="number">
+                    </mat-form-field>
+               </div>
 
-</div>
+               <!-- calendar -->
+               <mat-card class="demo-inline-calendar-card">
+                    <mat-calendar [(selected)]="selectedDate"></mat-calendar>
+               </mat-card>
 
-<div mat-dialog-actions
-     align="end">
-    <button mat-button
-            cdkFocusInitial>Ok</button>
-</div>
+          </div>
+          <!-- account -->
+          <mat-form-field class="w-full">
+               <mat-label>numer konta</mat-label>
+               <input matInput
+                      formControlName="bankAccount"
+                      type="datetime">
+          </mat-form-field>
+     </mat-card-content>
+
+     <mat-card-actions align="end">
+          <button mat-flat-button
+                  color="accent"
+                  (click)="createNewEvent()"
+                  type="button">Utwórz termin</button>
+     </mat-card-actions>
+</mat-card>

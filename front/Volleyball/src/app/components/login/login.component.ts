@@ -29,7 +29,7 @@ export class LoginComponent {
   storage = inject(LocalStorageService);
 
   constructor(public dialogRef: MatDialogRef<LoginComponent>) {
-    this.loginForm = this.fb.nonNullable.group<LoginInfo>({
+    this.loginForm = this.fb.group<LoginInfo>({
       name: '', surname: ''
     })
   }
