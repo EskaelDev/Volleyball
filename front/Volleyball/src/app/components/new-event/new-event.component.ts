@@ -53,8 +53,8 @@ export class NewEventComponent {
   selectedDate: Date | null;
 
   createNewEvent() {
-    this.newEventForm.controls['date'].setValue(this.selectedDate)
-
+    this.newEventForm.controls.date.setValue(this.selectedDate)
+    
     console.log(this.newEventForm.value);
     console.log(this.newEventForm.valid);
     console.log(this.newEventForm.errors);
